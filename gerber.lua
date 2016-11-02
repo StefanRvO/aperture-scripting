@@ -147,7 +147,7 @@ local function load_aperture(data, macros, unit)
 		aperture.hole_width = hx and hx * scale
 		aperture.hole_height = hy and hy * scale
 	elseif shape=='rectangle' then
-		local x,y,hx,hy = table.unpack(data.parameters)
+		local x,y,hx,hy = unpack(data.parameters)
 		assert(x and y, "rectangle apertures require at least 2 parameters")
 		aperture.unit = 'pm'
 		aperture.width = x * scale
@@ -155,7 +155,7 @@ local function load_aperture(data, macros, unit)
 		aperture.hole_width = hx and hx * scale
 		aperture.hole_height = hy and hy * scale
 	elseif shape=='obround' then
-		local x,y,hx,hy = table.unpack(data.parameters)
+		local x,y,hx,hy = unpack(data.parameters)
 		assert(x and y, "obround apertures require at least 2 parameters")
 		aperture.unit = 'pm'
 		aperture.width = x * scale
@@ -163,7 +163,7 @@ local function load_aperture(data, macros, unit)
 		aperture.hole_width = hx and hx * scale
 		aperture.hole_height = hy and hy * scale
 	elseif shape=='polygon' then
-		local d,steps,angle,hx,hy = table.unpack(data.parameters)
+		local d,steps,angle,hx,hy = unpack(data.parameters)
 		assert(d and steps, "polygon apertures require at least 2 parameter")
 		aperture.unit = 'pm'
 		aperture.diameter = d * scale
