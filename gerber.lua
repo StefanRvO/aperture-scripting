@@ -8,6 +8,7 @@ local interpolationlib = require 'boards.interpolation'
 
 local atan2 = math.atan2 or math.atan
 
+local unpack = unpack or table.unpack
 ------------------------------------------------------------------------------
 
 -- all positions in picometers (1e-12 meters)
@@ -139,7 +140,7 @@ local function load_aperture(data, macros, unit)
 	}
 	
 	if shape=='circle' then
-		local d,hx,hy = table.unpack(data.parameters)
+		local d,hx,hy = unpack(data.parameters)
 		assert(d, "circle apertures require at least 1 parameter")
 		aperture.unit = 'pm'
 		aperture.diameter = d * scale
